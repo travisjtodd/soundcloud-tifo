@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    logger.info env["omniauth.auth"].to_s
+    # logger.info env["omniauth.auth"].to_s
 
     # {
     #   "provider" => "soundcloud",
@@ -89,6 +89,10 @@ class SessionsController < ApplicationController
     #   provider: "soundcloud", 
     #   uid: 8622709
     # }
+
+    user = User.from_omniauth(env["omniauth.auth"])
+    session[:user_id] = user.id
+    redirect_to root_url, notice: "Signed in!"
 
   end
 
