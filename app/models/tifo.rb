@@ -1,5 +1,8 @@
 class Tifo < ActiveRecord::Base
 
+  belongs_to :user
+  belongs_to :team
+
   before_validation lambda { create_token(6) }
   
   validates :token, presence: true, uniqueness: true

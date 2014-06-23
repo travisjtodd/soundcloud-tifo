@@ -20,6 +20,9 @@ class TifosController < ApplicationController
 
   # GET /tifos/1/edit
   def edit
+    client = SoundCloud.new(access_token: current_user.access_token)
+
+    @mytracks = client.get("/me/tracks")
   end
 
   # POST /tifos
@@ -29,7 +32,7 @@ class TifosController < ApplicationController
 
     respond_to do |format|
       if @tifo.save
-        format.html { redirect_to @tifo, notice: 'Tifo was successfully created.' }
+        format.html { redirect_to tifo_path(@tifo.token), notice: 'Tifo was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tifo }
       else
         format.html { render action: 'new' }
@@ -43,7 +46,7 @@ class TifosController < ApplicationController
   def update
     respond_to do |format|
       if @tifo.update(tifo_params)
-        format.html { redirect_to @tifo, notice: 'Tifo was successfully updated.' }
+        format.html { redirect_to tifo_path(@tifo.token), notice: 'Tifo was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

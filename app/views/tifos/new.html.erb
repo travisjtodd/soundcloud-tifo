@@ -15,9 +15,7 @@
 
     $('#create_tifo a')
       .bind("ajax:success", function(evt, data, status, xhr){
-
-        window.location.replace('<%= tifos_path %>/' + data["token"]);
-
+        window.location.replace('<%= tifos_path %>/' + data["token"] + "/edit");
       })
 
       // TODO: Error handling
