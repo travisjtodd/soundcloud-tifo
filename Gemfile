@@ -45,4 +45,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # My Gems
-gem 'soundcloud', git: 'https://github.com/soundcloud/soundcloud-ruby.git' #broken
+gem 'soundcloud', git: 'https://github.com/soundcloud/soundcloud-ruby.git'
+gem 'omniauth-soundcloud', '~> 1.0.0'

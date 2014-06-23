@@ -14,3 +14,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+config/environment_variables.yml
+config/initializers/environment_variables.rb
+
+*.DS_Store
