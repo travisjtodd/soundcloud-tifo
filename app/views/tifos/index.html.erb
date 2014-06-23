@@ -1,0 +1,29 @@
+<h1>Listing tifos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Track</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tifos.each do |tifo| %>
+      <tr>
+        <td><%= tifo.team_id %></td>
+        <td><%= tifo.track_id %></td>
+        <td><%= link_to 'Show', tifo %></td>
+        <td><%= link_to 'Edit', edit_tifo_path(tifo) %></td>
+        <td><%= link_to 'Destroy', tifo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tifo', new_tifo_path %>
