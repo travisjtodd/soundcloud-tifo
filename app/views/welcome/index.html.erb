@@ -1,2 +1,8 @@
 <h1>Soundcloud Twelfth Man</h1>
-<p><a href="/auth/soundcloud">Connect your Soundcloud account</a></p>
+<p>
+  <% if current_user %>
+    <%= link_to "Sign out", signout_path %>
+  <% else %>
+    <%= link_to "Connect your Soundcloud account", "/auth/soundcloud" %>
+  <% end %>
+</p>
