@@ -23,6 +23,8 @@ class TifosController < ApplicationController
     client = SoundCloud.new(access_token: current_user.access_token)
 
     @mytracks = client.get("/me/tracks")
+
+    @tifo.photos.build
   end
 
   # POST /tifos
@@ -46,7 +48,7 @@ class TifosController < ApplicationController
   def update
     respond_to do |format|
       if @tifo.update(tifo_params)
-        format.html { redirect_to tifo_path(@tifo.token), notice: 'Tifo was successfully updated.' }
+        format.html { redirect_to tifo_photos_path(tifo_id: @tifo.token), notice: 'Tifo was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -73,6 +75,6 @@ class TifosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tifo_params
-      params.require(:tifo).permit(:team_id, :track_id, :user_id)
+      params.require(:tifo).permit(:team_id, :track_id, :user_id, posts_attributes: [:id, :photo_id, :tifo_id])
     end
 end

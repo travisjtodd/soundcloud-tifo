@@ -1,0 +1,77 @@
+<h1>Choose Your Photos</h1>
+<h2><%= @tifo.team.name %></h2>
+
+<input type="text" id="instagram_name" value="travisjtodd" />
+<a class="#" id="instagram_search">Load</a>
+
+<ul class="images"></ul>
+
+<div class="actions">
+  <%= link_to "Finished", tifo_path(@tifo.token) %>
+</div>
+    
+<script>
+
+  function addImageToTifo(link) {
+
+    if ($(link).hasClass('added')) {
+
+      $(link).removeClass('added');
+    
+    } else {
+      
+      $.ajax({
+        type: "POST",
+        url: "/tifos/<%= @tifo.token %>/photos.json",
+        data: { 
+          photo: {url: $(link).children('img').attr('src'), photo_id: $(link).attr('href').split("/")[4] } 
+        },
+        success: function(data) {
+          $(link).toggleClass('added');
+          return false;
+        },
+        error: function(data) {
+          $(link).toggleClass('error');
+          return false;
+        }
+      });
+
+    }
+
+  }
+
+
+  $(function() {
+    
+    $('#instagram_search').click(function(){
+
+      $('ul.images').html("");
+
+      $('ul.images').instagramLite({
+        username: $('#instagram_name').val(),
+        clientID: '199554eb34504658a4770d2859b5a583', //TODO: Use real key and secure
+        urls: true,
+        limit: 40,
+        error: function(errorCode, errorMessage) {
+        
+          console.log('There was an error');
+        
+          if(errorCode && errorMessage) {
+            alert(errorCode +': '+ errorMessage);          
+          }
+          
+        },
+        success: function() {
+          console.log('The request was successful!');
+
+          $('ul.images li a').on('click', function(e){
+            addImageToTifo(this);
+            e.preventDefault();
+          });
+
+        }
+      });
+    });
+  });
+
+</script>

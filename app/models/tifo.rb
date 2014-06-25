@@ -2,6 +2,9 @@ class Tifo < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :team
+  has_many :photos
+
+  accepts_nested_attributes_for :photos
 
   before_validation lambda { create_token(6) }
   

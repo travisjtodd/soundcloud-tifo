@@ -1,6 +1,8 @@
-<h1>Choose Your Anthem</h1>
-
 <%= form_for(@tifo, url: tifo_path(@tifo.token)) do |f| %>
+
+  <h1>Choose Your Anthem</h1>
+  <h2><%= @tifo.team.name %></h2>
+  
   <% if @tifo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tifo.errors.count, "error") %> prohibited this tifo from being saved:</h2>
@@ -13,13 +15,13 @@
     </div>
   <% end %>
 
-  <%= f.object.team.name %>
-
   <div class="field">
     <%= f.label :track_id %><br>
     <%= f.collection_select :track_id, @mytracks, :id, :title, prompt: true %>
   </div>
+
   <div class="actions">
     <%= f.submit "Choose this Anthem" %>
   </div>
+
 <% end %>
