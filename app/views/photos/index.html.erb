@@ -1,24 +1,42 @@
-<h1>Choose Your Photos</h1>
-<h2><%= @tifo.team.name %></h2>
+<div class="container" role="photos"> 
+  
+  <%= render "layouts/small_header" %>
 
-<input type="text" id="instagram_name" value="travisjtodd" />
-<a class="#" id="instagram_search">Load</a>
+  <div class="row">
+    <div class="sixteen columns">
+      <h1>Choose Your <%= @tifo.team.name %> Photos</h1>
+    </div>
+  </div>
 
-<ul class="images"></ul>
+  <div class="row offset-by-four">
+    <input type="text" id="instagram_name" placeholder="Enter an Instagram username" class="six columns omega" />
+    <a href="#" class="two columns alpha search" id="instagram_search">Search</a>
+  </div>
+
+  <div class="row">
+    <div class="sixteen columns">
+      <ul class="images"></ul>
+    </div>
+  </div>
+
+</div>
 
 <div class="actions">
-  <%= link_to "Finished", tifo_path(@tifo.token) %>
+  <%= link_to "Finished", tifo_path(@tifo.token), class: "button" %>
 </div>
     
 <script>
 
   function addImageToTifo(link) {
 
-    if ($(link).hasClass('added')) {
+    // if ($(link).hasClass('added')) {
 
-      $(link).removeClass('added');
+      // TODO: Delete as well
+
+    //   $(link).removeClass('added');
+    //   $(this).removeClass('disabled');
     
-    } else {
+    // } else {
       
       $.ajax({
         type: "POST",
@@ -36,41 +54,54 @@
         }
       });
 
-    }
+    // }
 
   }
 
 
   $(function() {
     
-    $('#instagram_search').click(function(){
+    $('#instagram_search').click(function(e){
 
-      $('ul.images').html("");
+      if (!$(this).hasClass('disabled')) {
 
-      $('ul.images').instagramLite({
-        username: $('#instagram_name').val(),
-        clientID: '199554eb34504658a4770d2859b5a583', //TODO: Use real key and secure
-        urls: true,
-        limit: 40,
-        error: function(errorCode, errorMessage) {
-        
-          console.log('There was an error');
-        
-          if(errorCode && errorMessage) {
-            alert(errorCode +': '+ errorMessage);          
-          }
+        $('#instagram_search').addClass('disabled');
+
+        $('ul.images').html("");
+
+        $('ul.images').instagramLite({
+          username: $('#instagram_name').val(),
+          clientID: '199554eb34504658a4770d2859b5a583', //TODO: Use real key and secure
+          urls: true,
+          limit: 25,
+          error: function(errorCode, errorMessage) {
           
-        },
-        success: function() {
-          console.log('The request was successful!');
+            $('#instagram_search').removeClass('disabled');
 
-          $('ul.images li a').on('click', function(e){
-            addImageToTifo(this);
-            e.preventDefault();
-          });
+            console.log('There was an error');
 
-        }
-      });
+            if(errorCode && errorMessage) {
+              alert(errorCode +': '+ errorMessage);          
+            }
+
+            
+          },
+          success: function() {
+            console.log('The request was successful!');
+            
+            $('#instagram_search').removeClass('disabled');
+
+            $('ul.images li a').on('click', function(e){
+              addImageToTifo(this);
+              e.preventDefault();
+            });
+
+          }
+        });
+
+      }
+
+      e.preventDefault();
     });
   });
 

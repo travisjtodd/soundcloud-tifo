@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require instagramLite
+//= require fancySelect
 //= require_tree .

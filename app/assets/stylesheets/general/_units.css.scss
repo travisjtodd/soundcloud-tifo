@@ -1,0 +1,15 @@
+/* BASE UNITS AND SIZES
+   =============================== */
+
+/* Grid */
+$base_unit: 20px;
+$column_width: $base_unit * 2; /* 40px */
+$column_gutter: $base_unit; /* 20px */
+$container_width: ($column_width * 16) + ($column_gutter * 16);
+$tablet_column_width: $column_width * 0.7; /* 28px */
+$tablet_container_width: ($tablet_column_width * 16) + ($column_gutter * 16);
+$mobile_landscape_column_width: ($base_unit * 24) - $column_gutter; /* 420px */
+$mobile_portrait_column_width: ($base_unit * 15) - $column_gutter; /* 300px */
+
+/* Fonts */
+$font_size: 22px;

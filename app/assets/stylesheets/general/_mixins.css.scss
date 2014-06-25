@@ -1,0 +1,146 @@
+/* MIXINS
+   =============================== */
+
+// These are commonly used functions or styles
+// ==================================================
+
+// Image Replacement
+@mixin ir {
+  display: block;
+  border: 0;
+  text-indent: -999em;
+  overflow: hidden;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+  line-height: 0;
+  br { display: none; }
+}
+
+// Opacity
+@mixin opacity($val:1) {
+  opacity:$val;
+  $ieval: $val * 100;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$ieval})";
+}
+
+// Transition
+@mixin transition($property: all, $time: .1s) {
+  -o-transition: $property $time linear;
+  -moz-transition: $property $time linear;
+  -webkit-transition: $property $time linear;
+  transition: $property $time linear;
+}
+
+// Border-box
+@mixin border-box {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// Rounded Corners
+@mixin rounded-corners($val1: 5px, $val2: 5px, $val3: 5px, $val4: 5px) {
+  -moz-border-radius-topleft: $val1;
+  -moz-border-radius-topright: $val2;
+  -moz-border-radius-bottomright: $val3;
+  -moz-border-radius-bottomleft: $val4;
+  -webkit-border-top-left-radius: $val1;
+  -webkit-border-top-right-radius: $val2;
+  -webkit-border-bottom-right-radius: $val3;
+  -webkit-border-bottom-left-radius: $val4;
+  -ms-border-top-left-radius: $val1;
+  -ms-border-top-right-radius: $val2;
+  -ms-border-bottom-right-radius: $val3;
+  -ms-border-bottom-left-radius: $val4;
+  -o-border-top-left-radius: $val1;
+  -o-border-top-right-radius: $val2;
+  -o-border-bottom-right-radius: $val3;
+  -o-border-bottom-left-radius: $val4;
+  border-top-left-radius: $val1;
+  border-top-right-radius: $val2;
+  border-bottom-right-radius: $val3;
+  border-bottom-left-radius: $val4;
+}
+
+// Box Shadow
+@mixin box-shadow($horz, $vert, $blur, $color, $spread: 0px) {
+  -moz-box-shadow: $horz $vert $blur $spread $color;
+  -webkit-box-shadow: $horz $vert $blur $spread $color;
+  -ms-box-shadow: $horz $vert $blur $spread $color;
+  -o-box-shadow: $horz $vert $blur $spread $color;
+  box-shadow: $horz $vert $blur $spread $color;
+}
+
+// Inset Box Shadow
+// TODO: Once SASS is updated to newest version combine with mixin above
+@mixin inset-box-shadow($horz, $vert, $blur, $color, $spread: 0px) {
+  -moz-box-shadow: $horz $vert $blur $spread $color inset;
+  -webkit-box-shadow: $horz $vert $blur $spread $color inset;
+  -ms-box-shadow: $horz $vert $blur $spread $color inset;
+  -o-box-shadow: $horz $vert $blur $spread $color inset;
+  box-shadow: $horz $vert $blur $spread $color inset;
+}
+
+// Background Gradient
+// TODO: Extend this to allow intermediary color stops
+@mixin background-gradient($from, $to) {
+  background: $from; /* Old browsers */
+  background: -moz-linear-gradient(top, $from 0%, $to 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, $from 0%,$to 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, $from 0%,$to 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, $from 0%,$to 100%); /* IE10+ */
+  background: linear-gradient(to bottom, $from 0%, $to 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin placeholder-styles {
+  ::-webkit-input-placeholder { @content }
+  :-moz-placeholder           { @content }
+  ::-moz-placeholder          { @content }
+  :-ms-input-placeholder      { @content }
+}
+
+/* CSS 2D Transformations
+ ===================================== */
+
+// Rotate
+@mixin rotate($degree) {
+  // Note: $degree must look like this: 45deg
+  transform: rotate($degree);
+  -ms-transform: rotate($degree); /* IE 9 */
+  -webkit-transform: rotate($degree); /* Safari and Chrome */
+}
+
+// Move
+@mixin move($x, $y) {
+  transform: translate($x, $y);
+  -ms-transform: translate($x, $y); /* IE 9 */
+  -webkit-transform: translate($x, $y); /* Safari and Chrome */
+}
+
+// Mixed
+@mixin rotate-and-move($degree, $x, $y) {
+  transform: rotate($degree) translate($x, $y);
+  -ms-transform: rotate($degree) translate($x, $y); /* IE 9 */
+  -webkit-transform: rotate($degree) translate($x, $y); /* Safari and Chrome */
+}
+
+
+/* Clearing Floats
+ ===================================== */
+
+@mixin clearfix {
+  zoom: 1;
+  &:before, &:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+  &:after { clear: both; }
+}

@@ -1,8 +1,25 @@
-<h1>Soundcloud Twelfth Man</h1>
-<p>
+ <div class="container" role="welcome"> 
+  <header class="row offset-by-six">
+    <div class="four columns logo">
+      <%= image_tag 'logo-large.png', alt: "Soundcloud Twelfth Man" %>
+    </div>
+  </header>
   <% if current_user %>
-    <%= link_to "Sign out", signout_path %>
-  <% else %>
-    <%= link_to "Connect your Soundcloud account", "/auth/soundcloud" %>
+    <div class="row offset-by-six">
+      <div class="four columns">
+        <p>
+          <%= link_to "New Tifo", new_tifo_path, :class => 'button' %>
+        </p>
+      </div>
+    </div>
   <% end %>
-</p>
+  <div class="row offset-by-six">
+    <div class="four columns connect">
+      <% if current_user %>
+        <%= link_to image_tag("btn-disconnect-l.png", alt: "Disconnect"), signout_path %>
+      <% else %>
+        <%= link_to image_tag("btn-connect-l.png", alt: "Connect"), "/auth/soundcloud" %>
+      <% end %>
+    </div>
+  </div>
+</div>

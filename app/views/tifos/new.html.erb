@@ -1,14 +1,27 @@
-<h1>Choose Your Team</h1>
+ <div class="container" role="new-tifo"> 
+  
+  <%= render "layouts/small_header" %>
 
-<ul id="create_tifo" class="teams">
-  <% @teams.each do |team| %>
-    <li>
-      <%= link_to tifos_path(tifo: {team_id: team.id, user_id: current_user.id}, format: :json), method: :post, remote: true, disable_with: "Warming up ..." do %>
-        <%= team.name %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+  <div class="row offset-by-six">
+    <div class="four columns">
+      <h1>Choose Your Team</h1>
+    </div>
+  </div>
+  <div class="row offset-by-six">
+    <div class="ten columns">
+      <ul id="create_tifo" class="teams">
+        <% @teams.each do |team| %>
+          <li>
+            <%= link_to tifos_path(tifo: {team_id: team.id, user_id: current_user.id}, format: :json), method: :post, remote: true, disable_with: "Warming up ...", class: "button"  do %>
+              <%= team.name %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
 
 <script>
   $(document).ready(function(){

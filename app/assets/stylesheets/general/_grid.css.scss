@@ -1,0 +1,373 @@
+/*
+* Skeleton V1.2
+* Copyright 2011, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 6/20/2012
+*/
+
+/* Table of Contents
+==================================================
+    #Base Grid (960)
+    #Tablet (Portrait)
+    #Mobile (Portrait)
+    #Mobile (Landscape)
+    #Clearing */
+
+/* #Base Grid (960)
+================================================== */
+
+.container {
+  position: relative;
+  width: $container_width; /* 960px; */
+  margin: 0 auto;
+  padding: 0;
+  .column, .columns {
+    float: left;
+    display: inline;
+    margin-left: $column_gutter / 2;
+    margin-right: $column_gutter / 2;
+  }
+}
+
+.row {
+  margin-bottom: $base_unit;
+}
+
+/* Nested Column Classes */
+
+.column.alpha, .columns.alpha {
+  margin-left: 0;
+}
+
+.column.omega, .columns.omega {
+  margin-right: 0;
+}
+
+/* Base Grid */
+
+.container {
+  .one {
+    &.column, &.columns {
+      width: $column_width;
+    }
+  }
+  .two.columns {
+    width: ($column_width * 2) + $column_gutter; /* 100px; */
+  }
+  .three.columns {
+    width: ($column_width * 3) + ($column_gutter * 2); /* 160px; */
+  }
+  .four.columns {
+    width: ($column_width * 4) + ($column_gutter * 3); /* 220px; */
+  }
+  .five.columns {
+    width: ($column_width * 5) + ($column_gutter * 4); /* 280px; */
+  }
+  .six.columns {
+    width: ($column_width * 6) + ($column_gutter * 5); /* 340px; */
+  }
+  .seven.columns {
+    width: ($column_width * 7) + ($column_gutter * 6); /* 400px; */
+  }
+  .eight.columns {
+    width: ($column_width * 8) + ($column_gutter * 7); /* 460px; */
+  }
+  .nine.columns {
+    width: ($column_width * 9) + ($column_gutter * 8); /* 520px; */
+  }
+  .ten.columns {
+    width: ($column_width * 10) + ($column_gutter * 9); /* 580px; */
+  }
+  .eleven.columns {
+    width: ($column_width * 11) + ($column_gutter * 10); /* 640px; */
+  }
+  .twelve.columns {
+    width: ($column_width * 12) + ($column_gutter * 11); /* 700px; */
+  }
+  .thirteen.columns {
+    width: ($column_width * 13) + ($column_gutter * 12); /* 760px; */
+  }
+  .fourteen.columns {
+    width: ($column_width * 14) + ($column_gutter * 13); /* 820px; */
+  }
+  .fifteen.columns {
+    width: ($column_width * 15) + ($column_gutter * 14); /* 880px; */
+  }
+  .sixteen.columns {
+    width: ($column_width * 16) + ($column_gutter * 15); /* 940px; */
+  }
+  .one-third.column {
+    width: ($column_width * 5) + ($column_gutter * 5); /* 300px; */
+  }
+  .two-thirds.column {
+    width: ($column_width * 10) + ($column_gutter * 11); /* 620px; */
+  }
+
+  /* Offsets */
+
+  $column_offset: $column_width + $column_gutter; /* 60px; */
+
+  .offset-by-one {
+    padding-left: $column_offset; /* 60px; */
+  }
+  .offset-by-two {
+    padding-left: $column_offset * 2; /* 120px; */
+  }
+  .offset-by-three {
+    padding-left: $column_offset * 3; /* 180px; */
+  }
+  .offset-by-four {
+    padding-left: $column_offset * 4; /* 240px; */
+  }
+  .offset-by-five {
+    padding-left: $column_offset * 5; /* 300px; */
+  }
+  .offset-by-six {
+    padding-left: $column_offset * 6; /* 360px; */
+  }
+  .offset-by-seven {
+    padding-left: $column_offset * 7; /* 420px; */
+  }
+  .offset-by-eight {
+    padding-left: $column_offset * 8; /* 480px; */
+  }
+  .offset-by-nine {
+    padding-left: $column_offset * 9; /* 540px; */
+  }
+  .offset-by-ten {
+    padding-left: $column_offset * 10; /* 600px; */
+  }
+  .offset-by-eleven {
+    padding-left: $column_offset * 11; /* 660px; */
+  }
+  .offset-by-twelve {
+    padding-left: $column_offset * 12; /* 720px; */
+  }
+  .offset-by-thirteen {
+    padding-left: $column_offset * 13; /* 780px; */
+  }
+  .offset-by-fourteen {
+    padding-left: $column_offset * 14; /* 840px; */
+  }
+  .offset-by-fifteen {
+    padding-left: $column_offset * 15; /* 900px; */
+  }
+  .offset-by-one-third {
+    padding-left: ($column_width * 5) + ($column_gutter * 5) - 40; /* 260px; */
+  }
+  .offset-by-two-thirds {
+    padding-left: ($column_width * 10) + ($column_gutter * 11) - 40; /* 580px; */
+  }
+  &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+
+/* #Tablet (Portrait)
+================================================== */
+
+/* Note: Design for a width of 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .container {
+    width: $tablet_container_width; /* 768px; */
+    .column, .columns {
+      margin-left: $column_gutter / 2;
+      margin-right: $column_gutter / 2;
+    }
+  }
+  .column.alpha, .columns.alpha {
+    margin-left: 0;
+    margin-right: $column_gutter / 2;
+  }
+  .column.omega, .columns.omega {
+    margin-right: 0;
+    margin-left: $column_gutter / 2;
+  }
+  .alpha.omega {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .container {
+    .one {
+      &.column, &.columns {
+        width: $tablet_column_width; /* 28px; */
+      }
+    }
+    .two.columns {
+      width: ($tablet_column_width * 2) + $column_gutter; /* 76px; */
+    }
+    .three.columns {
+      width: ($tablet_column_width * 3) + ($column_gutter * 2); /* 124px; */
+    }
+    .four.columns {
+      width: ($tablet_column_width * 4) + ($column_gutter * 3); /* 172px; */
+    }
+    .five.columns {
+      width: ($tablet_column_width * 5) + ($column_gutter * 4); /* 220px; */
+    }
+    .six.columns {
+      width: ($tablet_column_width * 6) + ($column_gutter * 5); /* 268px; */
+    }
+    .seven.columns {
+      width: ($tablet_column_width * 7) + ($column_gutter * 6); /* 316px; */
+    }
+    .eight.columns {
+      width: ($tablet_column_width * 8) + ($column_gutter * 7); /* 364px; */
+    }
+    .nine.columns {
+      width: ($tablet_column_width * 9) + ($column_gutter * 8); /* 412px; */
+    }
+    .ten.columns {
+      width: ($tablet_column_width * 10) + ($column_gutter * 9); /* 460px; */
+    }
+    .eleven.columns {
+      width: ($tablet_column_width * 11) + ($column_gutter * 10); /* 508px; */
+    }
+    .twelve.columns {
+      width: ($tablet_column_width * 12) + ($column_gutter * 11); /* 556px; */
+    }
+    .thirteen.columns {
+      width: ($tablet_column_width * 13) + ($column_gutter * 12); /* 604px; */
+    }
+    .fourteen.columns {
+      width: ($tablet_column_width * 14) + ($column_gutter * 13); /* 652px; */
+    }
+    .fifteen.columns {
+      width: ($tablet_column_width * 15) + ($column_gutter * 14); /* 700px; */
+    }
+    .sixteen.columns {
+      width: ($tablet_column_width * 16) + ($column_gutter * 15); /* 748px; */
+    }
+
+    $one_third_grid: (($tablet_column_width * 16) + ($column_gutter * 13)) / 3;
+
+    .one-third.column {
+      width: $one_third_grid; /* 236px; */
+    }
+    .two-thirds.column {
+      width: ($one_third_grid * 2) + $column_gutter; /* 492px; */
+    }
+
+    /* Offsets */
+
+    $column_offset: $tablet_column_width + $column_gutter;
+
+    .offset-by-one {
+      padding-left: $column_offset; /* 48px; */
+    }
+    .offset-by-two {
+      padding-left: $column_offset * 2; /* 96px; */
+    }
+    .offset-by-three {
+      padding-left:  $column_offset * 3; /* 144px; */
+    }
+    .offset-by-four {
+      padding-left:  $column_offset * 4; /* 192px; */
+    }
+    .offset-by-five {
+      padding-left:  $column_offset * 5; /* 240px; */
+    }
+    .offset-by-six {
+      padding-left:  $column_offset * 6; /* 288px; */
+    }
+    .offset-by-seven {
+      padding-left:  $column_offset * 7; /* 336px; */
+    }
+    .offset-by-eight {
+      padding-left:  $column_offset * 8; /* 384px; */
+    }
+    .offset-by-nine {
+      padding-left:  $column_offset * 9; /* 432px; */
+    }
+    .offset-by-ten {
+      padding-left:  $column_offset * 10; /* 480px; */
+    }
+    .offset-by-eleven {
+      padding-left:  $column_offset * 11; /* 528px; */
+    }
+    .offset-by-twelve {
+      padding-left:  $column_offset * 12; /* 576px; */
+    }
+    .offset-by-thirteen {
+      padding-left:  $column_offset * 13; /* 624px; */
+    }
+    .offset-by-fourteen {
+      padding-left:  $column_offset * 14; /* 672px; */
+    }
+    .offset-by-fifteen {
+      padding-left:  $column_offset * 15; /* 720px; */
+    }
+    .offset-by-one-third {
+      padding-left: $one_third_grid + $column_gutter; /* 256px; */
+    }
+    .offset-by-two-thirds {
+      padding-left: ($one_third_grid * 2) + ($column_gutter * 2); /* 512px; */
+    }
+  }
+}
+
+/*  #Mobile (Portrait)
+================================================== */
+
+/* Note: Design for a width of 320px */
+
+@media only screen and (max-width: 767px) {
+
+  .container {
+    width: $mobile_portrait_column_width;
+    .columns, .column {
+      margin: 0;
+    }
+    .one {
+      &.column, &.columns {
+        width: $mobile_portrait_column_width;
+      }
+    }
+    .two.columns, .three.columns, .four.columns, .five.columns, .six.columns, .seven.columns, .eight.columns, .nine.columns, .ten.columns, .eleven.columns, .twelve.columns, .thirteen.columns, .fourteen.columns, .fifteen.columns, .sixteen.columns, .one-third.column, .two-thirds.column {
+      width: $mobile_portrait_column_width;
+    }
+    /* Offsets */
+    .offset-by-one, .offset-by-two, .offset-by-three, .offset-by-four, .offset-by-five, .offset-by-six, .offset-by-seven, .offset-by-eight, .offset-by-nine, .offset-by-ten, .offset-by-eleven, .offset-by-twelve, .offset-by-thirteen, .offset-by-fourteen, .offset-by-fifteen, .offset-by-one-third, .offset-by-two-thirds {
+      padding-left: 0;
+    }
+  }
+}
+
+/* #Mobile (Landscape)
+================================================== */
+
+/* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .container {
+    width: $mobile_landscape_column_width;
+    .columns, .column {
+      margin: 0;
+    }
+    .one {
+      &.column, &.columns {
+        width: $mobile_landscape_column_width;
+      }
+    }
+    .two.columns, .three.columns, .four.columns, .five.columns, .six.columns, .seven.columns, .eight.columns, .nine.columns, .ten.columns, .eleven.columns, .twelve.columns, .thirteen.columns, .fourteen.columns, .fifteen.columns, .sixteen.columns, .one-third.column, .two-thirds.column, .offset-by-one-third, .offset-by-two-thirds {
+      width: $mobile_landscape_column_width;
+    }
+  }
+}
+
+/* #Clearing
+================================================== */
+
+/* wrap each row of columns in a <div class="row"> */
+
+.row {
+  @include clearfix;
+}

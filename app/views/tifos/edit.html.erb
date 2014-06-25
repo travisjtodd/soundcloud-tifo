@@ -1,27 +1,33 @@
-<%= form_for(@tifo, url: tifo_path(@tifo.token)) do |f| %>
-
-  <h1>Choose Your Anthem</h1>
-  <h2><%= @tifo.team.name %></h2>
+<div class="container" role="edit-tifo"> 
   
-  <% if @tifo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@tifo.errors.count, "error") %> prohibited this tifo from being saved:</h2>
+  <%= render "layouts/small_header" %>
 
-      <ul>
-      <% @tifo.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="row">
+    <div class="sixteen columns">
+      <h1>Choose Your <%= @tifo.team.name %> Anthem</h1>
     </div>
+  </div>
+  
+  <%= form_for(@tifo, url: tifo_path(@tifo.token)) do |f| %>
+        
+    <div class="row offset-by-four">
+      <div class="eight columns">
+        <%= f.collection_select :track_id, @mytracks, :id, :title, prompt: true %>
+      </div>
+    </div>
+
+    <div class="row offset-by-four">
+      <div class="eight columns">
+        <%= f.submit "Choose this Anthem", class: 'button' %>
+      </div>
+    </div>
+  
   <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :track_id %><br>
-    <%= f.collection_select :track_id, @mytracks, :id, :title, prompt: true %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Choose this Anthem" %>
-  </div>
-
-<% end %>
+<script>
+  $(document).ready(function(){
+    $('#tifo_track_id').fancySelect();
+  });
+</script>
