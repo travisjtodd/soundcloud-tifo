@@ -1,21 +1,52 @@
-<h1>
-  <%= @tifo.team.name %>
-</h1>
+<div role="tifo"> 
+  <header>
+    
+    <div class="container">
+      <div class="row remove-bottom">
+        <div class="two columns logo">
+          <%= image_tag 'logo-large.png', alt: "Soundcloud Twelfth Man" %>
+        </div>
+        <div class="twelve   columns">
 
-<h2>
-  By
-  <%= @tifo.user.name %>
-</h2>
+          <h1><%= @tifo.team.name %> Tifo by <%= @tifo.user.name %></h1>
 
-<p>
-  <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= @tifo.track_id %>&show_artwork=true"></iframe>
-</p>
+          <p>
+            <iframe id="sc-widget" width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F<%= @tifo.track_id %>&show_artwork=true"></iframe>
+          </p>
 
-<ul>
-  <% @tifo.photos.each do |photo| %>
-    <li>
-      <%= image_tag photo.url %>
-    </li>
-  <% end %>
-</ul>
+        </div>
+        <div class="two columns logo">
+          <div class="share-button"></div>
+        </div>
+      </div>
+    </div>
 
+  </header>
+
+  <ul>
+    <% @tifo.photos.each do |photo| %>
+      <li class="background-photo" style="background-image: url('<%= photo.url %>');">
+        <% #= image_tag photo.url, class: "ten columns", 'data-adaptive-background' => '1' %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    // $.adaptiveBackground.run()
+    $('.background-photo').height($(window).width());
+    
+    config = {
+      title: '<%= @tifo.team.name %> Tifo by <%= @tifo.user.name %>',
+      text:  'I\'m supporting #<%= @tifo.team.tag %>. Check out my #Soundcloud tifo!',
+      description: 'I\'m supporting #<%= @tifo.team.tag %>. Check out my #Soundcloud tifo!',
+      ui: {
+        flyout: 'bottom left'
+      }
+    }
+
+    new Share(".share-button", config)
+  });
+</script>

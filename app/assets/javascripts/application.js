@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require instagramLite
 //= require fancySelect
+//= require jquery.adaptive-backgrounds
+//= require share.min
 //= require_tree .
