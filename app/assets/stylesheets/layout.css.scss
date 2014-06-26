@@ -9,6 +9,8 @@ body {
   text-align: center;
 }
 
+a { color: $black; text-decoration: underline; }
+
 a.button, input.button {
   display: inline-block;
   padding: 20px 20px 20px 20px;
