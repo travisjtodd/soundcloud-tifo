@@ -3,7 +3,7 @@ class CreateTifos < ActiveRecord::Migration
     create_table :tifos do |t|
       t.integer :team_id
       t.integer :user_id
-      t.string :track_id
+      t.integer :track_id
       t.string :token
 
       t.timestamps
