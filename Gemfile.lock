@@ -89,6 +89,7 @@ GEM
       omniauth (~> 1.2)
     omniauth-soundcloud (1.0.1)
       omniauth-oauth2 (~> 1.1.0)
+    pg (0.17.0)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -149,6 +150,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-soundcloud (~> 1.0.0)
+  pg
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
   sdoc
