@@ -15,7 +15,7 @@
           </p>
 
         </div>
-        <div class="two columns logo">
+        <div class="two columns">
           <div class="share-button"></div>
         </div>
       </div>
@@ -38,6 +38,10 @@
     // $.adaptiveBackground.run()
     $('.background-photo').height($(window).width());
     
+    $( window ).resize(function() {
+      $('.background-photo').height($(window).width());
+    });
+
     config = {
       title: '<%= @tifo.team.name %> Tifo by <%= @tifo.user.name %>',
       text:  'I\'m supporting #<%= @tifo.team.tag %>. Check out my #Soundcloud tifo!',
