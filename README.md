@@ -1,16 +1,17 @@
 # README
 
-## Ruby version: 2.0
+## Ruby version
+
+* 2.0
 
 ## System dependencies
 
-   Rails 4
-   SQLite
+* Rails 4
+* SQLite
 
 ## Configuration
 
 Make sure to create an `environment_variables.yml` file in the `config` folder containing your Soundcloud app credentials:
-
 
     SOUNDCLOUD_KEY: abc123abc123abc123abc123abc123
     SOUNDCLOUD_SECRET: abc123abc123abc123abc123abc123
