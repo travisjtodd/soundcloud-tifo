@@ -1,30 +1,32 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+
+2.0
 
 * System dependencies
 
+Rails 4
+SQLite
+
 * Configuration
+
+Make sure to create an `environment_variables.yml` file in the `config` folder containing your Soundcloud app credentials:
+
+```
+SOUNDCLOUD_KEY: abc123abc123abc123abc123abc123
+SOUNDCLOUD_SECRET: abc123abc123abc123abc123abc123
+```
 
 * Database creation
 
+Run `rake db:migrate` and `rake db:seed` to get going
+
 * Database initialization
 
-Make sure to run rake db:seeds to seed the world cup teams. Don't let Sepp Blatter do it though. That guy's a crook.
+Make sure to run `rake db:seed` to seed the world cup teams. Don't let Sepp Blatter do it though. That guy's a crook.
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+No tests. Flying blind at the moment. ;)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
