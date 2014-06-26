@@ -63,9 +63,9 @@
     
     $('#instagram_search').click(function(e){
 
-      if (!$(this).hasClass('disabled')) {
+      // if (!$(this).hasClass('disabled')) {
 
-        $('#instagram_search').addClass('disabled');
+        // $('#instagram_search').addClass('disabled');
 
         $('ul.images').html("");
 
@@ -76,7 +76,7 @@
           limit: 25,
           error: function(errorCode, errorMessage) {
           
-            $('#instagram_search').removeClass('disabled');
+            // $('#instagram_search').removeClass('disabled');
 
             console.log('There was an error');
 
@@ -89,7 +89,7 @@
           success: function() {
             console.log('The request was successful!');
             
-            $('#instagram_search').removeClass('disabled');
+            // $('#instagram_search').removeClass('disabled');
 
             $('ul.images li a').on('click', function(e){
               addImageToTifo(this);
@@ -99,7 +99,7 @@
           }
         });
 
-      }
+      // }
 
       e.preventDefault();
     });
